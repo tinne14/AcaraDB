@@ -1,4 +1,4 @@
-package com.metrodata.erdtest.db.table;
+package com.metrodata.erdtest.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,13 +31,13 @@ public class SessionDetail {
     private Session session;
 
     @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
-    private List<trSessionRegistrant> trSessionRegistrants;
+    private List<SessionRegistrant> SessionRegistrants;
 
     @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
-    private List<trSessionSpeaker> trSessionSpeakers;
+    private List<SessionSpeaker> SessionSpeakers;
 
     @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
-    private List<trSessionDetailRoom> trSessionDetailRooms;
+    private List<SessionDetailRoom> SessionDetailRooms;
 
     @OneToOne(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn

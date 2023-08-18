@@ -1,4 +1,4 @@
-package com.metrodata.erdtest.db.table;
+package com.metrodata.erdtest.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,15 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_tr_session_detail_rooms")
-public class trSessionDetailRoom {
+@Table(name = "tb_tr_session_speakers")
+public class SessionSpeaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
+    @JoinColumn(name = "speaker_id")
+    private Speaker speaker;
 
     @ManyToOne
     @JoinColumn(name = "session_detail_id")

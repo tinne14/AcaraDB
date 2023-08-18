@@ -1,4 +1,4 @@
-package com.metrodata.erdtest.db.table;
+package com.metrodata.erdtest.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

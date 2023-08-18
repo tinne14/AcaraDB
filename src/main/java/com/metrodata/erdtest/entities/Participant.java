@@ -1,7 +1,7 @@
-package com.metrodata.erdtest.db.table;
+package com.metrodata.erdtest.entities;
 
 import jakarta.persistence.*;
-import com.metrodata.erdtest.db.enums.occupation;
+import com.metrodata.erdtest.entities.enums.occupation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

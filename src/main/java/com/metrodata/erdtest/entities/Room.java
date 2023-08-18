@@ -1,4 +1,4 @@
-package com.metrodata.erdtest.db.table;
+package com.metrodata.erdtest.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,5 +21,5 @@ public class Room {
     private String name;
 
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
-    private List<trSessionDetailRoom> trSessionDetailRooms;
+    private List<SessionDetailRoom> SessionDetailRooms;
 }

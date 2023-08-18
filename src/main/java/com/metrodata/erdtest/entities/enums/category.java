@@ -1,4 +1,4 @@
-package com.metrodata.erdtest.db.enums;
+package com.metrodata.erdtest.entities.enums;
 
 public enum category {
     Tera, Giga, Mega, SUPPORT

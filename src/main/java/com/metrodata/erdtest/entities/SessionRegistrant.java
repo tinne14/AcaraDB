@@ -1,6 +1,5 @@
-package com.metrodata.erdtest.db.table;
+package com.metrodata.erdtest.entities;
 
-import com.metrodata.erdtest.db.enums.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_tr_session_registrants")
-public class trSessionRegistrant {
+public class SessionRegistrant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,7 +25,7 @@ public class trSessionRegistrant {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private com.metrodata.erdtest.db.enums.status status;
+    private com.metrodata.erdtest.entities.enums.status status;
 
     @Column(name = "registered_at", nullable = false)
     private LocalDateTime registeredAt;
