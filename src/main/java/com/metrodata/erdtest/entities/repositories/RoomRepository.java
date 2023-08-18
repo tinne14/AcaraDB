@@ -10,10 +10,10 @@ import java.util.List;
 
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long> {
-    List<Room> findByIdIs(int id);
+    List<Room> findByIdEquals(int id);
 
     // Custom Query JPQL
-    @Query("SELECT r FROM Room r WHERE s.id = ?1")
+    @Query("SELECT r FROM Room r WHERE r.id = ?1")
     List<Room> getIdIs(int id);
 
     // Custom Query Native
