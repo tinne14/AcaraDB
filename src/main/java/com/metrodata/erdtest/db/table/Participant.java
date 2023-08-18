@@ -2,8 +2,14 @@ package com.metrodata.erdtest.db.table;
 
 import jakarta.persistence.*;
 import com.metrodata.erdtest.db.enums.occupation;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tb_m_participants")
 public class Participant {
     @Id

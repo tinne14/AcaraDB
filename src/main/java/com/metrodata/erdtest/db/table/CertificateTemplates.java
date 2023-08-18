@@ -1,8 +1,14 @@
 package com.metrodata.erdtest.db.table;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tb_m_certificate_templates")
 public class CertificateTemplates {
     @Id

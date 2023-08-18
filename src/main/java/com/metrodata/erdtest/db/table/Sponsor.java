@@ -2,10 +2,16 @@ package com.metrodata.erdtest.db.table;
 
 import com.metrodata.erdtest.db.enums.category;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tb_m_sponsors")
 public class Sponsor {
     @Id
