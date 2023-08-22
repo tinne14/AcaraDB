@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ParticipantRepository extends JpaRepository<Participant, Long>{
+    // Query Method
     List<Participant> findByUniversity(String university);
 
     // Custom Query JPQL

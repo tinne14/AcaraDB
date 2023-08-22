@@ -1,5 +1,6 @@
 package com.metrodata.erdtest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import com.metrodata.erdtest.entities.enums.occupation;
 import lombok.AllArgsConstructor;
@@ -35,7 +36,8 @@ public class Participant {
     @Column(nullable = false)
     private occupation occupation;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     @JoinColumn(name = "event_id")
     private Event event;
 }

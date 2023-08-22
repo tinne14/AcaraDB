@@ -1,5 +1,6 @@
 package com.metrodata.erdtest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,8 @@ public class Speaker {
     @Column(length = 100, nullable = false)
     private String company;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     @JoinColumn
     private Sponsor sponsor;
 }

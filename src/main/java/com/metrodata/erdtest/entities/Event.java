@@ -1,5 +1,6 @@
 package com.metrodata.erdtest.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +11,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
-@Entity
-@Data
+@Entity @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_m_events")
@@ -26,18 +26,23 @@ public class Event {
     @Column(length = 50, nullable = false)
     private String slug;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     @Column(name = "start_registration", nullable = false)
     private LocalDateTime startRegistration;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     @Column(name = "close_registration", nullable = false)
     private LocalDateTime closeRegistration;
 
@@ -56,14 +61,16 @@ public class Event {
     @Column(columnDefinition = "TINYINT", nullable = false)
     private int status;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", fetch = FetchType.EAGER)
     private List<Session> sessions;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", fetch = FetchType.EAGER)
     private List<Participant> participant;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", fetch = FetchType.EAGER)
     private List<Sponsor> sponsors;
 
+    @OneToMany(mappedBy = "event", fetch = FetchType.EAGER)
+    private List<Room> rooms;
 
 }

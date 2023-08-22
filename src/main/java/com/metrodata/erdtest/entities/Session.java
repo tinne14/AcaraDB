@@ -1,5 +1,8 @@
 package com.metrodata.erdtest.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,9 +24,11 @@ public class Session {
     @Column(length = 100, nullable = false)
     private String name;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
 
@@ -34,9 +39,10 @@ public class Session {
     private int needAttendance;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
+    @JsonIgnore
+    @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<SessionDetail> sessionDetail;
 }

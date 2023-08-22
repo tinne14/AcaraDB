@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface SessionSpeakerRepository extends JpaRepository<SessionSpeaker, Long> {
+    // Query Method
     List<SessionSpeaker> findByIdIs(int id);
 
     // Custom Query JPQL

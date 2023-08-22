@@ -1,5 +1,6 @@
 package com.metrodata.erdtest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.metrodata.erdtest.entities.enums.category;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,10 +29,11 @@ public class Sponsor {
     @Column(nullable = false)
     private category category;
 
-    @OneToMany(mappedBy = "sponsor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sponsor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Speaker> speakers;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     @JoinColumn(name = "event_id")
     private Event event;
 

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface SessionDetailRepository extends JpaRepository<SessionDetail, Long> {
+    // Query Method
     List<SessionDetail> findByDescriptionIsNotNull();
 
     // Custom Query JPQL

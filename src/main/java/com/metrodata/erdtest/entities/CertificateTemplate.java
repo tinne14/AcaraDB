@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_m_certificate_templates")
-public class CertificateTemplates {
+public class CertificateTemplate {
     @Id
     @Column(name = "id")
     private Long id;

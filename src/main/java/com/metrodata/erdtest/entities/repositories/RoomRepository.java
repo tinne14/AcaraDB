@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long> {
+    // Query Method
     List<Room> findByIdEquals(int id);
 
     // Custom Query JPQL

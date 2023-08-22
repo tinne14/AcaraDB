@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface SpeakerRepository extends JpaRepository<Speaker, Long> {
+    // Query Method
     List<Speaker> findByJobTitle(String jobTitle);
 
     // Custom Query JPQL

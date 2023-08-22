@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface SessionDetailRoomRepository extends JpaRepository<SessionDetailRoom, Long> {
+    // Query Method
     List<SessionDetailRoom> findByIdIs(int id);
 
     // Custom Query JPQL

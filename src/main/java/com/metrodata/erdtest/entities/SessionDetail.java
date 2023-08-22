@@ -1,5 +1,6 @@
 package com.metrodata.erdtest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,20 +27,21 @@ public class SessionDetail {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     @JoinColumn(name = "session_id")
     private Session session;
 
-    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<SessionRegistrant> SessionRegistrants;
 
-    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<SessionSpeaker> SessionSpeakers;
 
-    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<SessionDetailRoom> SessionDetailRooms;
 
-    @OneToOne(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
-    private CertificateTemplates certificateTemplates;
+    private CertificateTemplate certificateTemplate;
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface SessionRepository extends JpaRepository<Session, Long> {
-
+    // Query Method
     List<Session> findByName(String name);
 
     // Custom Query JPQL

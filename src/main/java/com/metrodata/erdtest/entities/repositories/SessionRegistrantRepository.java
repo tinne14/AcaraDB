@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface SessionRegistrantRepository extends JpaRepository<SessionRegistrant, Long> {
+    // Query Method
     List<SessionRegistrant> findByIsAttended(int isAttended);
 
     // Custom Query JPQL

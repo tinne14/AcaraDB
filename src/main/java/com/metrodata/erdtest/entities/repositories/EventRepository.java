@@ -16,7 +16,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     // Custom Query JPQL
     @Query("SELECT e FROM Event e WHERE e.capacity < ?1")
     List<Event> getAllEventLessThanCapacity(int capacity);
-
     // Custom Query Native
     @Query(value = "SELECT * FROM tb_m_events WHERE capacity < ?1", nativeQuery = true)
     List<Event> getAllEventLessThanCapacityNative(int capacity);

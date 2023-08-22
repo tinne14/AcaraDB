@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface SponsorRepository extends JpaRepository<Sponsor, Long> {
-
+    // Query Method
     List<Sponsor> findByName(String name);
 
     // Custom Query JPQL
