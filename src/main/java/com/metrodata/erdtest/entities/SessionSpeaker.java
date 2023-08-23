@@ -16,12 +16,12 @@ public class SessionSpeaker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "speaker_id")
     private Speaker speaker;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "session_detail_id")
     private SessionDetail sessionDetail;

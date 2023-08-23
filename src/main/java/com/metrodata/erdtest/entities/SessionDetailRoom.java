@@ -20,7 +20,7 @@ public class SessionDetailRoom {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "session_detail_id")
     private SessionDetail sessionDetail;

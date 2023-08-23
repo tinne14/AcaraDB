@@ -27,21 +27,21 @@ public class SessionDetail {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "session_id")
     private Session session;
 
-    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "sessionDetail", fetch = FetchType.EAGER)
     private List<SessionRegistrant> SessionRegistrants;
 
-    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "sessionDetail", fetch = FetchType.EAGER)
     private List<SessionSpeaker> SessionSpeakers;
 
-    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "sessionDetail", fetch = FetchType.EAGER)
     private List<SessionDetailRoom> SessionDetailRooms;
 
-    @OneToOne(mappedBy = "sessionDetail", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "sessionDetail", fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
     private CertificateTemplate certificateTemplate;
 }

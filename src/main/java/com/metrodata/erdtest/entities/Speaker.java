@@ -28,7 +28,7 @@ public class Speaker {
     @Column(length = 100, nullable = false)
     private String company;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn
     private Sponsor sponsor;

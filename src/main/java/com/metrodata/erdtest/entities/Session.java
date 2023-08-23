@@ -43,6 +43,6 @@ public class Session {
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "session", fetch = FetchType.EAGER)
     private List<SessionDetail> sessionDetail;
 }

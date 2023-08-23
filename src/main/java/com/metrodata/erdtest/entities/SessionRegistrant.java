@@ -37,12 +37,12 @@ public class SessionRegistrant {
     @Column(name = "is_reminder_sent", columnDefinition = "TINYINT", nullable = false)
     private int isReminderSent;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "participant_id")
     private Participant participant;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "session_detail_id")
     private SessionDetail sessionDetail;

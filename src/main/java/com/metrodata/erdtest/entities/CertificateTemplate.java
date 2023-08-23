@@ -1,5 +1,6 @@
 package com.metrodata.erdtest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class CertificateTemplate {
     private String certificateUrl;
 
     @OneToOne
+    @JsonIgnore
     @MapsId
     @JoinColumn(name = "id")
     private SessionDetail sessionDetail;

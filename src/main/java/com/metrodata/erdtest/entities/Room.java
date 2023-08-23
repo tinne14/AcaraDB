@@ -24,7 +24,7 @@ public class Room {
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<SessionDetailRoom> SessionDetailRooms;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;

@@ -29,10 +29,10 @@ public class Sponsor {
     @Column(nullable = false)
     private category category;
 
-    @OneToMany(mappedBy = "sponsor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "sponsor", fetch = FetchType.EAGER)
     private List<Speaker> speakers;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "event_id")
     private Event event;

@@ -36,7 +36,7 @@ public class Participant {
     @Column(nullable = false)
     private occupation occupation;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "event_id")
     private Event event;
